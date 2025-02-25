@@ -470,6 +470,7 @@ class OnlineDPOTrainer(Trainer):
         # policies with different tokenizers / chat templates.
         inputs = [{"prompt": prompt} for prompt in prompts]
         inputs = [maybe_apply_chat_template(x, self.processing_class) for x in inputs]
+        print(inputs)
         inputs = [self.tokenize_row(x, False, self.processing_class) for x in inputs]
         inputs = self.data_collator(inputs)
 
