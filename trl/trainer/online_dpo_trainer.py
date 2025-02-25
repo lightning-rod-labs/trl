@@ -549,7 +549,7 @@ class OnlineDPOTrainer(Trainer):
             # directly understandable by the judge and could alter its judgment. To avoid this and make the judge
             # independent of the model's chat template, we use the raw conversation data, and apply our own chat
             # template to it.
-            if is_conversational({"prompt": prompts[0]}):
+            if False and is_conversational({"prompt": prompts[0]}):
                 environment = jinja2.Environment()
                 template = environment.from_string(SIMPLE_CHAT_TEMPLATE)
                 prompts = [template.render(messages=prompt) for prompt in prompts]
